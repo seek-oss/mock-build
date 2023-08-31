@@ -49,5 +49,8 @@
     "template": null,
     "type": "package",
     "version": "7.1.1"
+  },
+  "volta": {
+    "node": "18.12.1"
   }
 }
