@@ -4,11 +4,12 @@
   "version": "2.2.0",
   "license": "MIT",
   "scripts": {
-    "build": "yarn run tsup ./src/index.ts --format cjs,esm",
-    "buildWithDts": "yarn run tsup ./src/index.ts --format cjs,esm --dts --sourcemap",
+    "build": "pnpm run tsup ./src/index.ts --format cjs,esm",
+    "buildWithDts": "pnpm run tsup ./src/index.ts --format cjs,esm --dts --sourcemap",
     "test": "jest",
     "lint": "eslint -c .eslintrc.js --ext .ts src/**/*.ts __tests__/**/*.ts",
-    "prepublishOnly": "rimraf dist && yarn run buildWithDts"
+    "prepublishOnly": "rimraf dist && pnpm run buildWithDts",
+    "preinstall": "npx only-allow pnpm"
   },
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -29,6 +30,8 @@
     ]
   },
   "devDependencies": {
+    "@changesets/cli": "^2.26.2",
+    "@changesets/get-github-info": "^0.5.2",
     "@types/jest": "^29.1.2",
     "@typescript-eslint/eslint-plugin": "^5.40.0",
     "@typescript-eslint/eslint-plugin-tslint": "^5.40.0",
