@@ -1,15 +1,17 @@
 {
   "name": "builder-pattern",
-  "repository": "https://github.com/Vincent-Pang/builder-pattern.git",
+  "repository": "https://github.com/seek-oss/mock-builder.git",
   "version": "2.2.0",
   "license": "MIT",
   "scripts": {
-    "build": "pnpm run tsup ./src/index.ts --format cjs,esm",
-    "buildWithDts": "pnpm run tsup ./src/index.ts --format cjs,esm --dts --sourcemap",
+    "build": "pnpm tsup ./src/index.ts --format cjs,esm",
+    "buildWithDts": "pnpm tsup ./src/index.ts --format cjs,esm --dts --sourcemap",
     "test": "jest",
     "lint": "eslint -c .eslintrc.js --ext .ts src/**/*.ts __tests__/**/*.ts",
-    "prepublishOnly": "rimraf dist && pnpm run buildWithDts",
-    "preinstall": "npx only-allow pnpm"
+    "prepublishOnly": "rimraf dist && pnpm buildWithDts",
+    "preinstall": "npx only-allow pnpm",
+    "release": "changeset publish",
+    "changeset-version": "changeset version && prettier --write ."
   },
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
