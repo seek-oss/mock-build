@@ -2,13 +2,13 @@
   "name": "mock-builder",
   "version": "1.0.0",
   "private": false,
-  "homepage": "https://github.com/Vincent-Pang/builder-pattern#readme",
+  "homepage": "https://github.com/seek-oss/mock-builder#readme",
   "bugs": {
-    "url": "https://github.com/Vincent-Pang/builder-pattern/issues"
+    "url": "https://github.com/seek-oss/mock-builder/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Vincent-Pang/builder-pattern.git"
+    "url": "git+https://github.com/seek-oss/mock-builder.git"
   },
   "license": "MIT",
   "exports": {
