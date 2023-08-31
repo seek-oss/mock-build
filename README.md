@@ -36,7 +36,7 @@ const brokenUserInfo = mockBuilder<UserInfo>().build();
 
 A way around this is to use template objects (see Usage with template objects).
 
-Another way is to use StrictmockBuilder (see Usage with StrictmockBuilder).
+Another way is to use strictMockBuilder (see Usage with strictMockBuilder).
 
 ### Reusing builder instances
 
@@ -116,9 +116,9 @@ const userInfo = mockBuilder(UserInfo, {id: 1, userName: 'foo'})
 
 ```
 
-### Usage with StrictmockBuilder
+### Usage with strictMockBuilder
 
-`StrictmockBuilder` is used to make sure all variables are initialized.
+`strictMockBuilder` is used to make sure all variables are initialized.
 
 ```typescript
 interface UserInfo {
@@ -127,14 +127,14 @@ interface UserInfo {
   email: string;
 }
 
-const userInfo = StrictmockBuilder<UserInfo>().id(1).build(); // This expression is not callable.
+const userInfo = strictMockBuilder<UserInfo>().id(1).build(); // This expression is not callable.
 // Type 'never' has no call signatures.ts(2349)
 ```
 
 All variables must be initialized before calling `build()`.
 
 ```typescript
-const userInfo = StrictmockBuilder<UserInfo>()
+const userInfo = strictMockBuilder<UserInfo>()
   .id(1)
   .userName('foo')
   .email('foo@bar.baz')
@@ -142,7 +142,7 @@ const userInfo = StrictmockBuilder<UserInfo>()
 ```
 
 Notes:
-`StrictmockBuilder` does not support classes.
+`strictMockBuilder` does not support classes.
 
 ## Contributing
 
