@@ -1,5 +1,11 @@
 # mock-build
 
+## 1.0.2
+
+### Patch Changes
+
+- 467a317: Fix package.json exports declaration
+
 ## 1.0.1
 
 ### Patch Changes
