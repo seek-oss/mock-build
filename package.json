@@ -13,9 +13,9 @@
   "license": "MIT",
   "exports": {
     ".": {
-      "require": "./dist/index.js",
-      "import": "./dist/index.mjs",
-      "types": "./dist/index.d.ts"
+      "require": "./lib-commonjs/index.js",
+      "import": "./lib-es2015/index.js",
+      "types": "./lib-types/index.d.ts"
     }
   },
   "main": "./lib-commonjs/index.js",
