@@ -1,5 +1,11 @@
 # mock-build
 
+## 1.0.3
+
+### Patch Changes
+
+- be07014: Remove preinstall script
+
 ## 1.0.2
 
 ### Patch Changes
