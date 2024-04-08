@@ -33,7 +33,6 @@
     "lint": "skuba lint",
     "test": "skuba test --coverage",
     "test:watch": "skuba test --watch",
-    "preinstall": "npx only-allow pnpm",
     "release": "pnpm build && changeset publish",
     "changeset-version": "changeset version && prettier --write ."
   },
