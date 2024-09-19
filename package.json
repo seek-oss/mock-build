@@ -1,6 +1,6 @@
 {
   "name": "mock-build",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "private": false,
   "homepage": "https://github.com/seek-oss/mock-build#readme",
   "bugs": {
@@ -33,7 +33,6 @@
     "lint": "skuba lint",
     "test": "skuba test --coverage",
     "test:watch": "skuba test --watch",
-    "preinstall": "npx only-allow pnpm",
     "release": "pnpm build && changeset publish",
     "changeset-version": "changeset version && prettier --write ."
   },
