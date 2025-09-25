@@ -3,14 +3,15 @@ name: Release
 on:
   push:
     branches:
-      - beta
       - master
+  workflow_dispatch:
 
 permissions: {}
 
 jobs:
   release:
     name: Release
+    if: github.event_name == 'push'
     permissions:
       contents: write
       id-token: write
@@ -37,6 +38,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Install latest npm
+        run: npm install -g npm@latest
+
       - name: Release
         uses: changesets/action@v1
         with:
@@ -44,5 +48,38 @@ jobs:
           version: pnpm changeset-version
         env:
           GITHUB_TOKEN: ${{ secrets.SEEK_OSS_CI_GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          NPM_CONFIG_PROVENANCE: true
+  snapshot:
+    name: Publish snapshot version
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    env:
+      CI: true
+    permissions:
+      id-token: write
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@main
+        with:
+          # This makes Actions fetch all Git history so that Changesets can generate changelogs with the correct commits
+          fetch-depth: 0
+          token: ${{ secrets.SEEK_OSS_CI_GITHUB_TOKEN }}
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: package.json
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Install latest npm
+        run: npm install -g npm@latest
+
+      - name: Publish
+        uses: seek-oss/changesets-snapshot@v0
+        env:
+          GITHUB_TOKEN: ${{ secrets.SEEK_OSS_CI_GITHUB_TOKEN }}
