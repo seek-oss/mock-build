@@ -1,8 +1,0 @@
-name: Snapshot
-
-on: workflow_dispatch
-
-permissions: {}
-
-jobs:
-  
