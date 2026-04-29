@@ -1,5 +1,11 @@
 # mock-build
 
+## 2.0.0
+
+### Major Changes
+
+- 342b43d: Require Node >=22.14.0 and publish with tsdown
+
 ## 1.0.3
 
 ### Patch Changes
