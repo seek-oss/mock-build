@@ -1,6 +1,9 @@
 # managed by skuba
+.npmrc
+
 .idea/*
 .vscode/*
+!.vscode/extensions.json
 
 .cdk.staging/
 .serverless/
@@ -14,7 +17,7 @@ node_modules*/
 
 .DS_Store
 .eslintcache
-.npmrc
+.pnpm-debug.log
 *.tgz
 *.tsbuildinfo
 npm-debug.log

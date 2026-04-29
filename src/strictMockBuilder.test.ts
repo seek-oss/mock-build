@@ -1,4 +1,4 @@
-import { strictMockBuilder } from './index';
+import { strictMockBuilder } from './index.js';
 
 interface Testing {
   a: number;
