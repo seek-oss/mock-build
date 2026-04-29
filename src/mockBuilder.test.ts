@@ -1,4 +1,4 @@
-import { mockBuilder } from './index';
+import { mockBuilder } from './index.js';
 
 interface Testing {
   a: number;

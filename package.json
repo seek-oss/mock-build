@@ -13,45 +13,49 @@
   "license": "MIT",
   "exports": {
     ".": {
-      "require": "./lib-commonjs/index.js",
-      "import": "./lib-es2015/index.js",
-      "types": "./lib-types/index.d.ts"
-    }
+      "@seek/mock-build/source": "./src/index.ts",
+      "import": "./lib/index.mjs",
+      "require": "./lib/index.cjs"
+    },
+    "./package.json": "./package.json"
   },
-  "main": "./lib-commonjs/index.js",
-  "module": "./lib-es2015/index.js",
-  "types": "./lib-types/index.d.ts",
+  "main": "./lib/index.cjs",
+  "module": "./lib/index.mjs",
+  "types": "./lib/index.d.cts",
   "files": [
-    "lib*/**/*.d.ts",
-    "lib*/**/*.js",
-    "lib*/**/*.js.map",
-    "lib*/**/*.json"
+    "lib"
   ],
   "scripts": {
     "build": "skuba build-package",
+    "changeset-version": "changeset version && prettier --write .",
     "format": "skuba format",
     "lint": "skuba lint",
-    "test": "skuba test --coverage",
-    "test:watch": "skuba test --watch",
     "release": "pnpm build && changeset publish",
-    "changeset-version": "changeset version && prettier --write ."
+    "test": "skuba test --coverage",
+    "test:watch": "skuba test --watch"
   },
   "devDependencies": {
     "@changesets/cli": "^2.26.2",
     "@changesets/get-github-info": "^0.5.2",
-    "skuba": "7.1.1"
+    "skuba": "15.3.0"
   },
-  "packageManager": "pnpm@8.7.0",
+  "packageManager": "pnpm@10.30.1",
+  "engines": {
+    "node": ">=22.14.0"
+  },
   "publishConfig": {
-    "provenance": true
+    "exports": {
+      ".": {
+        "import": "./lib/index.mjs",
+        "require": "./lib/index.cjs"
+      },
+      "./package.json": "./package.json"
+    }
   },
   "skuba": {
     "entryPoint": "src/index.ts",
     "template": null,
     "type": "package",
-    "version": "7.1.1"
-  },
-  "volta": {
-    "node": "18.12.1"
+    "version": "15.3.0"
   }
 }

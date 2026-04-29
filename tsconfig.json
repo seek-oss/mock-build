@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
-    "target": "ES2016",
-    "module": "CommonJS",
-    "moduleResolution": "Node",
+    "skipLibCheck": true, // tsdown has optional peer deps
+    "customConditions": ["@seek/mock-build/source"],
+    "rootDir": ".",
+    "target": "ES2023",
     "sourceMap": true,
     "emitDecoratorMetadata": false,
     "experimentalDecorators": true,
@@ -11,7 +12,7 @@
     "strictNullChecks": true,
     "declaration": false,
     "outDir": "lib",
-    "lib": ["ES2022"]
+    "lib": ["ES2023"]
   },
   "exclude": ["lib*/**/*"],
   "extends": "skuba/config/tsconfig.json"
